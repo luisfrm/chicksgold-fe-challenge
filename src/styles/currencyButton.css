@@ -1,0 +1,18 @@
+.currency-button {
+	padding-inline: 30px;
+	height: 100%;
+  display: flex;
+  align-items: center;
+
+	&:hover {
+		border-bottom: 1px solid var(--text-color);
+	}
+}
+
+.menu-icon {
+	transition: transform 0.3s ease;
+}
+
+.dropdown-item:hover .menu-icon {
+	transform: rotate(180deg);
+}

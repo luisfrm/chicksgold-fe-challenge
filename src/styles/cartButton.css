@@ -1,0 +1,8 @@
+.cart-button {
+  padding-inline: 15px;
+  height: 100%;
+
+  &:hover {
+    border-bottom: 1px solid var(--text-color);
+  }
+}
