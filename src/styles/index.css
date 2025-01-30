@@ -166,6 +166,11 @@ body {
 	align-items: center;
 	width: 100%;
 	padding-top: 64px;
+	padding-bottom: 64px;
+
+	#title {
+		letter-spacing: var(--title-letter-spacing);
+	}
 
 	#content {
 		display: flex;
@@ -191,6 +196,13 @@ body {
 			& {
 				max-width: 100%;
 			}
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		& {
+			padding-left: 10px;
+			padding-right: 10px;
 		}
 	}
 }

@@ -71,8 +71,8 @@ export default function ProductCard({ item, onAddToCart, onViewDetails, maxQuant
 				</header>
 
 				<section className="product-price-section">
-					<p className="current-price">${item.price.toFixed(2)}</p>
-					{item.originalPrice && (
+					{item.onSale && <p className="current-price">${item.price.toFixed(2)}</p>}
+					{item.onSale && item.originalPrice && (
 						<div className="original-price-container">
 							<p className="original-price">${item.originalPrice.toFixed(2)}</p>
 							<div className="line-through"></div>
