@@ -1,5 +1,7 @@
+"use client";
+
 import { useState } from "react";
-import { Sword, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 interface Option {
 	value: string;
@@ -7,13 +9,24 @@ interface Option {
 }
 
 interface CustomSelectProps {
+	label?: string;
 	placeholder?: string;
 	options: Option[];
 	value?: string;
 	onChange?: (value: string) => void;
+	icon?: React.ReactNode;
+	iconColor?: string;
 }
 
-export default function CustomSelect({ placeholder = "Select a game", options, value, onChange }: CustomSelectProps) {
+export default function CustomSelect({
+	label,
+	placeholder = "Select option",
+	options,
+	value,
+	onChange,
+	icon,
+	iconColor,
+}: CustomSelectProps) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [selectedValue, setSelectedValue] = useState(value);
 
@@ -34,10 +47,17 @@ export default function CustomSelect({ placeholder = "Select a game", options, v
 				aria-haspopup="listbox"
 				aria-expanded={isOpen}
 			>
-				<Sword className="select-icon" size={16} />
-				<span className="select-value">{selectedOption ? selectedOption.label : placeholder}</span>
+				{icon && (
+					<span className="select-icon" style={{ color: iconColor }}>
+						{icon}
+					</span>
+				)}
+				<div className="select-label-container">
+					{label && <label className="select-label">{label}</label>}
+					<span className="select-value">{selectedOption ? selectedOption.label : placeholder}</span>
+				</div>
 				<ChevronDown
-					className="select-icon"
+					className="select-chevron"
 					size={18}
 					style={{
 						transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
@@ -52,12 +72,16 @@ export default function CustomSelect({ placeholder = "Select a game", options, v
 				{options.map(option => (
 					<button
 						key={option.value}
-						className="select-item"
+						className="select-item rotate-icon"
 						role="option"
 						aria-selected={selectedValue === option.value}
 						onClick={() => handleSelect(option.value)}
 					>
-						<Sword className="select-icon" size={16} />
+						{icon && (
+							<span className="select-icon" style={{ color: iconColor }}>
+								{icon}
+							</span>
+						)}
 						{option.label}
 					</button>
 				))}
