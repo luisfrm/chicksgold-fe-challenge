@@ -1,6 +1,7 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Products from "./components/Products";
+import Widgets from "./components/Widgets";
 
 function App() {
 	return (
@@ -15,6 +16,7 @@ function App() {
 			</main>
 
 			<Footer />
+			<Widgets />
 		</>
 	);
 }

@@ -14,6 +14,7 @@ import "./styles/pagination.css";
 import "./styles/customSelect.css";
 import "./styles/searchInput.css";
 import "./styles/footer.css";
+import "./styles/widgets.css";
 
 import App from "./App.tsx";
 

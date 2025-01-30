@@ -82,9 +82,15 @@ button {
 }
 
 .current-price {
-	color: var(--text-color);
-	font-weight: 500;
-	font-size: var(--product-item-price-font-size);
+  color: var(--text-color);
+  font-size: var(--product-item-price-font-size);
+  font-weight: var(--product-item-price-font-weight);
+}
+
+.total-price {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: var(--product-item-price-font-weight);
 }
 
 .original-price-container {
@@ -133,7 +139,13 @@ button {
 	font-size: var(--product-card-button-font-size);
 	max-height: var(--product-card-button-max-height);
 	text-transform: uppercase;
+
+	&.remove {
+		background: var(--warning-color);
+	}
 }
+
+
 
 .add-button:hover {
 	opacity: 0.8;

@@ -1,22 +1,42 @@
-import { useState } from "react";
-import { ChevronUp, ChevronDown, ShoppingCart } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ChevronUp, ChevronDown, ShoppingCart, Trash2 } from "lucide-react";
 import { CartItem } from "../config/types";
+import useStore from "../stores/useStore";
+import { isProductOnCart } from "../config/utils";
 
 interface ProductCardProps {
 	item: CartItem;
 	onAddToCart?: (item: CartItem) => void;
+	onRemoveFromCart?: (id: string) => void;
 	onViewDetails?: (id: string) => void;
 	maxQuantity?: number;
 }
 
-export default function ProductCard({ item, onAddToCart, onViewDetails, maxQuantity = 8 }: ProductCardProps) {
-	const [quantity, setQuantity] = useState(1);
+export default function ProductCard({
+	item,
+	onAddToCart,
+	onRemoveFromCart,
+	onViewDetails,
+	maxQuantity = 8,
+}: ProductCardProps) {
+	const [quantity, setQuantity] = useState<number>(1);
+	const cart = useStore(state => state.cart);
+	const [isOnCart, setIsOnCart] = useState(false);
+
+	useEffect(() => {
+		setIsOnCart(isProductOnCart(item.id, cart.items));
+	}, [cart.items, item.id]);
 
 	const handleQuantityChange = (delta: number) => {
 		const newQuantity = quantity + delta;
 		if (newQuantity >= 1 && newQuantity <= maxQuantity) {
 			setQuantity(newQuantity);
 		}
+	};
+
+	const handleAddToCart = (cartItem: CartItem, cartQuantity: number) => {
+		onAddToCart?.({ ...cartItem, quantity: cartQuantity });
+		setQuantity(1);
 	};
 
 	return (
@@ -35,8 +55,8 @@ export default function ProductCard({ item, onAddToCart, onViewDetails, maxQuant
 						<span>{item.inStock ? "In stock" : "Out of stock"}</span>
 					</div>
 				</div>
-				{item.inStock && item.onSale && item.quantity > 0 && (
-					<div className="quantity-selector">
+				{!isOnCart && item.inStock && item.onSale && item.quantity > 0 && (
+					<div className={`quantity-selector ${isOnCart  ? "hidden" : ""}`}>
 						<div id="quantity-input">{quantity}</div>
 						<div className="chevron-section">
 							<button onClick={() => handleQuantityChange(+1)}>
@@ -75,11 +95,20 @@ export default function ProductCard({ item, onAddToCart, onViewDetails, maxQuant
 				<button className="details-button" onClick={() => onViewDetails?.(item.id)}>
 					Details
 				</button>
-				{item.inStock && item.onSale && (
-					<button className="add-button" onClick={() => onAddToCart?.({ ...item, quantity })}>
+				{item.inStock && item.onSale && !isOnCart && (
+					<button className="add-button" onClick={() => handleAddToCart(item, quantity)}>
 						Add
 						<span className="add-button-icon">
 							<ShoppingCart size={16} />
+						</span>
+					</button>
+				)}
+
+				{item.inStock && item.onSale && isOnCart && (
+					<button className="add-button remove" onClick={() => onRemoveFromCart?.(item.id)}>
+						Remove
+						<span className="add-button-icon">
+							<Trash2 size={16} />
 						</span>
 					</button>
 				)}

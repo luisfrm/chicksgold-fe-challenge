@@ -77,18 +77,6 @@
   margin-bottom: 8px;
 }
 
-.current-price {
-  color: var(--text-color);
-  font-size: var(--product-item-price-font-size);
-  font-weight: var(--product-item-font-weight);
-}
-
-.original-price {
-  color: var(--gray-color);
-  text-decoration: line-through;
-  font-size: var(--product-item-price-font-size);
-}
-
 .product-description {
   color: var(--gray-color);
   font-size: var(--header-item-font-size);

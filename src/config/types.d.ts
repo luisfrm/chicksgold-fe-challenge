@@ -1,3 +1,12 @@
+export type Genre =
+	| "Action"
+	| "Adventure"
+	| "Fantasy"
+
+export type Review = "Positive" | "Mixed" | "Negative";
+
+export type Features = "New" | "Featured" | "Limited Edition";
+
 export interface CartItem {
 	id: string;
 	name: string;
@@ -7,6 +16,11 @@ export interface CartItem {
 	inStock: boolean;
 	onSale: boolean;
 	quantity: number;
+	genre: Genre;
+	rating: number;
+	features: Features[];
+	reviews: Review;
+	isTrending: boolean;
 	platformBadge: string;
 	description: string;
 }
@@ -14,6 +28,7 @@ export interface CartItem {
 export interface Cart {
 	items: CartItem[]; // Articles in the cart
 	total: number; // Price of all items in the cart
+	totalItems: number;
 }
 
 export interface Products {

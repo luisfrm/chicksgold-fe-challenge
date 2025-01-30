@@ -5,6 +5,7 @@ import Logo from "../assets/Logo";
 import CurrencyButton from "./CurrencyButton";
 import CartSidebar from "./CartSidebar";
 import NavigationMobile from "./NavigationMobile";
+import CartButton from "./CartButton";
 
 const Header = () => {
 	return (
@@ -25,7 +26,9 @@ const Header = () => {
 				</nav>
 				<div className="header-cta">
 					<CurrencyButton />
-					<CartSidebar />
+					<CartSidebar>
+					<CartButton />
+						</CartSidebar>
 					<div className="flex align-center">
 						<button className="button-primary">
 							Sign In <UserRound className="header-signin" />

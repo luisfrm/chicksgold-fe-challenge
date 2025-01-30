@@ -1,43 +1,15 @@
 import { SidebarProvider } from "../context/SidebarContext";
 import { Sidebar, SidebarContent, SidebarDialog, SidebarFooter, SidebarHeader, SidebarTitle } from "./Sidebar";
-import CartButton from "./CartButton";
 import { ShoppingCart } from "lucide-react";
-import { Cart } from "../config/types";
+import useStore from "../stores/useStore";
 
-const sampleCart: Cart = {
-	items: [
-		{
-			id: "1",
-			name: "Gold Package",
-			price: 19.99,
-			originalPrice: 24.99,
-			imageUrl: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738256599/OSRS-Red_partyhat_bqyanu.webp",
-			inStock: true,
-			onSale: true,
-			quantity: 1,
-			platformBadge: "RS3",
-			description: "Premium gold package for RS3",
-		},
-		{
-			id: "2",
-			name: "Silver Package",
-			price: 9.99,
-			originalPrice: 14.99,
-			imageUrl: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738256599/OSRS-Red_partyhat_bqyanu.webp",
-			inStock: true,
-			onSale: false,
-			quantity: 2,
-			platformBadge: "RS3",
-			description: "Standard silver package for RS3",
-		},
-	],
-	total: 39.97,
-};
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function CartSidebar({ children }: any) {
+	const cart = useStore(state => state.cart);
 
-export default function CartSidebar() {
 	return (
 		<SidebarProvider>
-			<Sidebar className="flex align-center h-100" trigger={<CartButton />}>
+			<Sidebar className="flex align-center h-100" trigger={children}>
 				<SidebarDialog>
 					<SidebarHeader>
 						<SidebarTitle>
@@ -48,7 +20,7 @@ export default function CartSidebar() {
 					<SidebarContent>
 						<div className="cart-container">
 							<div className="cart-items">
-								{sampleCart.items.map(item => (
+								{cart.items.map(item => (
 									<div key={item.id} className="cart-item">
 										<img src={item.imageUrl || "/placeholder.svg"} alt={item.name} className="item-image" />
 										<div className="item-content">
@@ -59,12 +31,7 @@ export default function CartSidebar() {
 												</div>
 												<div className="item-price">
 													<div className="current-price">${item.price.toFixed(2)}</div>
-													{item.onSale && (
-														<div className="original-price-container">
-															<p className="original-price">${item.originalPrice.toFixed(2)}</p>
-															<div className="line-through"></div>
-														</div>
-													)}
+													<div className="total-price">${(item.price * item.quantity).toFixed(2)}</div>
 												</div>
 											</div>
 											<p className="item-description">{item.description}</p>
@@ -83,7 +50,7 @@ export default function CartSidebar() {
 					<SidebarFooter>
 						<div className="total">
 							<span>Total</span>
-							<span>${sampleCart.total.toFixed(2)}</span>
+							<span>${cart.total.toFixed(2)}</span>
 						</div>
 						<button className="checkout-button">Checkout</button>
 					</SidebarFooter>

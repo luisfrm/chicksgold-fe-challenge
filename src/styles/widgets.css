@@ -1,0 +1,142 @@
+.cart-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.cart-button-widget {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--button-bg-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: var(--radius-default);
+  padding: 12px 20px;
+  font-family: var(--roboto-font);
+  font-size: var(--header-item-font-size);
+  font-weight: var(--header-item-font-weight);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cart-button-widget:hover {
+  background: var(--purple-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.cart-icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--accent-color);
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+}
+
+.cart-total {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.total-label {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.total-amount {
+  font-weight: var(--font-weight-medium);
+}
+
+/* Tooltip styles */
+.cart-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  right: 0;
+  background: var(--card-background-color);
+  color: var(--text-color);
+  padding: 8px 12px;
+  border-radius: var(--radius-default);
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: all 0.2s ease;
+}
+
+.cart-button-widget:hover .cart-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Scroll to top button styles */
+.scroll-top-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--input-bg-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+
+.scroll-top-button.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-button:hover {
+  background: var(--input-bg-color-selected);
+}
+
+/* Animation for widget entrance */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cart-widget {
+  animation: slideIn 0.3s ease-out;
+}
+

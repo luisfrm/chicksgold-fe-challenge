@@ -3,11 +3,15 @@ import { Cart, CartItem } from "../config/types";
 
 interface AppState {
 	cart: Cart;
+	addToCart: (item: CartItem) => void;
+	removeFromCart: (id: string) => void;
+	clearCart: () => void;
 }
 
 const CART_INITIAL_STATE = {
 	items: [],
 	total: 0,
+	totalItems: 0,
 };
 
 const useStore = create<AppState>(set => ({
@@ -17,7 +21,8 @@ const useStore = create<AppState>(set => ({
 			cart: {
 				...state.cart,
 				items: [...state.cart.items, item],
-				total: state.cart.total + item.price,
+				total: [...state.cart.items, item].reduce((acc, item) => acc + item.price * item.quantity, 0),
+				totalItems: [...state.cart.items, item].reduce((acc, item) => acc + item.quantity, 0),
 			},
 		})),
 	removeFromCart: (id: string) =>
@@ -28,7 +33,8 @@ const useStore = create<AppState>(set => ({
 				cart: {
 					...state.cart,
 					items: state.cart.items.filter(item => item.id !== id),
-					total: state.cart.total - item.price,
+					total: state.cart.total - item.price * item.quantity,
+					totalItems: state.cart.totalItems - item.quantity,
 				},
 			};
 		}),

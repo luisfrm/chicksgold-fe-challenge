@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import ProductCard from "./ProductCard";
-import { fetchProducts, priceOptions, sortByOptions } from "../config/config";
+import { fetchProducts, itemTypeOptions, priceOptions, sortByOptions } from "../config/config";
 import { Products as ProductsType, Option, CartItem } from "../config/types";
 import Pagination from "./Pagination";
 import CustomSelect from "./CustomSelect";
@@ -8,6 +8,7 @@ import { uniquePlatformBadges } from "../config/utils";
 import { Feather, HandCoins, SlidersHorizontal, Sword } from "lucide-react";
 import SearchInput from "./SearchInput";
 import ProductDialog from "./ProductDialog";
+import useStore from "../stores/useStore";
 
 const INITIAL_PRODUCTS: ProductsType = {
 	page: 1,
@@ -23,13 +24,15 @@ const Products = () => {
 	const [searchTerm, setSearchTerm] = useState<string>("");
 	const [sortBy, setSortBy] = useState<string>("");
 	const [price, setPrice] = useState<string>("");
-	const [itemType] = useState<string>("");
+	const [itemType, setItemType] = useState<string>("");
 	const [page, setPage] = useState<number>(1);
 	const [game, setGame] = useState<string>("");
 	const [totalPages, setTotalPages] = useState<number>(1);
 	const itemsPerPage = 20;
 	const [isOpenViewDetails, setIsOpenViewDetails] = useState<boolean>(false);
 	const [selectedProduct, setSelectedProduct] = useState<CartItem | undefined>(undefined);
+	const { addToCart, removeFromCart } = useStore(state => state);
+	const [totalProducts, setTotalProducts] = useState<number>(0);
 
 	useEffect(() => {
 		fetchProducts().then(data => {
@@ -40,7 +43,6 @@ const Products = () => {
 	const handleViewDetails = (id: string) => {
 		setSelectedProduct(products.cartItems.find(item => item.id === id));
 		setIsOpenViewDetails(true);
-		console.log("View details");
 	};
 
 	const handleCloseViewDetails = () => {
@@ -48,7 +50,8 @@ const Products = () => {
 	};
 
 	const handleAddToCart = (item: CartItem) => {
-		console.log(item);
+		addToCart(item);
+		console.log("item", item);
 	};
 
 	const handleSearch = (searchTerm: string) => {
@@ -70,7 +73,8 @@ const Products = () => {
 		setPage(1);
 	};
 
-	const handleItemType = () => {
+	const handleItemType = (newItemType: string) => {
+		setItemType(newItemType);
 		setPage(1);
 	};
 
@@ -78,8 +82,6 @@ const Products = () => {
 		setGame(game);
 		setPage(1);
 	};
-
-
 
 	useEffect(() => {
 		const fetchedPlatformBadges = uniquePlatformBadges(products.cartItems);
@@ -92,11 +94,6 @@ const Products = () => {
 
 		if (searchTerm) {
 			result = result.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase()));
-		}
-
-		// Sorting
-		if (itemType) {
-			result = result.filter(product => product.platformBadge === itemType);
 		}
 
 		// Game filtering
@@ -113,6 +110,43 @@ const Products = () => {
 				}
 				return product.price >= minPrice;
 			});
+		}
+
+		if (itemType) {
+			switch (itemType) {
+				case "action":
+					result = result.filter(product => product.genre === "Action");
+					break;
+				case "adventure":
+					result = result.filter(product => product.genre === "Adventure");
+					break;
+				case "fantasy":
+					result = result.filter(product => product.genre === "Fantasy");
+					break;
+				case "trending":
+					result = result.filter(product => product.isTrending);
+					break;
+				case "new":
+					result = result.filter(product => product.features.includes("New"));
+					break;
+				case "featured":
+					result = result.filter(product => product.features.includes("Featured"));
+					break;
+				case "limited-edition":
+					result = result.filter(product => product.features.includes("Limited Edition"));
+					break;
+				case "positive-reviews":
+					result = result.filter(product => product.reviews === "Positive");
+					break;
+				case "mixed-reviews":
+					result = result.filter(product => product.reviews === "Mixed");
+					break;
+				case "negative-reviews":
+					result = result.filter(product => product.reviews === "Negative");
+					break;
+				default:
+					break;
+			}
 		}
 
 		// Sorting
@@ -137,6 +171,7 @@ const Products = () => {
 		}
 
 		setTotalPages(Math.ceil(result.length / itemsPerPage));
+		setTotalProducts(result.length);
 
 		result = result.slice((page - 1) * itemsPerPage, page * itemsPerPage);
 
@@ -161,7 +196,7 @@ const Products = () => {
 						icon={<Feather />}
 						iconColor="var(--accent-color)"
 						placeholder="All"
-						options={platformBadges}
+						options={itemTypeOptions}
 						onChange={handleItemType}
 						label="Item Type"
 					/>
@@ -170,12 +205,12 @@ const Products = () => {
 			<section id="products-container">
 				<header id="products-header">
 					<h4 className="product-title">
-						Showing {filteredProducts.length} from {products.cartItems.length}
+						Showing {filteredProducts.length} from {totalProducts}
 					</h4>
 					<CustomSelect
 						icon={<SlidersHorizontal />}
 						iconColor="var(--accent-color)"
-						placeholder="Featured"
+						placeholder="Select a sort option"
 						options={sortByOptions}
 						onChange={handleSortBy}
 						label="Sort By"
@@ -188,16 +223,17 @@ const Products = () => {
 								key={index}
 								item={product}
 								maxQuantity={product.quantity}
-								onAddToCart={() => handleAddToCart(product)}
+								onAddToCart={handleAddToCart}
 								onViewDetails={handleViewDetails}
+								onRemoveFromCart={removeFromCart}
 							/>
 						))}
 
 					{filteredProducts.length === 0 && <p>No products found</p>}
 				</section>
-					{filteredProducts.length > 0 && totalPages > 1 && (
-						<Pagination totalPages={totalPages} currentPage={page} onPageChange={handlePage} />
-					)}
+				{filteredProducts.length > 0 && totalPages > 1 && (
+					<Pagination totalPages={totalPages} currentPage={page} onPageChange={handlePage} />
+				)}
 			</section>
 			<ProductDialog item={selectedProduct} isOpen={isOpenViewDetails} onClose={handleCloseViewDetails} />
 		</section>
