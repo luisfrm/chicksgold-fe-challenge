@@ -1,0 +1,67 @@
+:root {
+	/* Primary */
+	--primary-color: #303141; /* Dark Blue */
+	--secondary-color: #162447; /* Medium Blue */
+	--tertiary-color: #37384b; /* Light Blue */
+	--accent-color: #39e29d; /* Green */
+	--accent-color-hover: #2bca8b; /* Dark Green */
+	--purple-color: #5762d5; /* Purple */
+  --light-blue-color: #404a65; /* Light Blue */
+	--gray-color: #858585; /* Gray */
+	--gray-light-color: #b6b6b6; /* Gray */
+	--input-bg-color: rgba(76, 96, 133, 0.2);
+	--input-bg-color-selected: rgba(76, 96, 133, 0.6);
+	--input-bg-color-secondary: rgba(76, 96, 133, 0.2);
+	--input-bg-color-selected: rgba(76, 96, 133, 0.6);
+	--highlight-color: #53354a; /* Purple */
+	--text-color: #ffffff; /* White */
+	--muted-color: #eaeaea; /* Light Gray */
+	--warning-color: #ff0000; /* Red */
+	--attention-color: #ffc107; /* Yellow */
+	--base-color: #000000; /* Black */
+	--radius-default: 6px;
+
+	--breakdown-sm: 576px; /* Small devices (landscape phones, 576px and up) */
+	--breakdown-md: 768px; /* Medium devices (tablets, 768px and up) */
+	--breakdown-lg: 992px; /* Large devices (desktops, 992px and up) */
+	--breakdown-xl: 1280px; /* Extra large devices (large desktops, 1200px and up) */
+
+	/* font weight */
+	--font-weight-light: 300;
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-bold: 700;
+
+	/* Secondary */
+	--main-background-color: var(--primary-color);
+	--page-background-color: var(--secondary-color);
+	--card-background-color: var(--tertiary-color);
+	--article-text-color: var(--text-color);
+	--sale-tag-color: var(--accent-color);
+	--button-background-color: var(--highlight-color);
+	--details-text-color: var(--muted-color);
+	--sale-icon-color: var(--warning-color);
+	--review-stars-color: var(--attention-color);
+	--footer-background-color: var(--base-color);
+	--button-bg-color: var(--purple-color); /* Purple */
+
+	/* Typography */
+	--roboto-font: "Roboto", sans-serif;
+	--body-font: "Roboto", sans-serif;
+	--header-font: "Roboto", sans-serif;
+
+	/* Header */
+	--header-item-font-size: 14px;
+	--header-item-font-weight: var(--font-weight-medium);
+	--header-height: 64px;
+	--header-icon-chevron-size: 18px;
+	--header-icon-signin-size: 16px;
+	--header-icon-cart-size: 16px;
+
+	/* Products */
+	--product-item-font-size: 16px;
+	--product-item-font-weight: var(--font-weight-light);
+	--product-item-price-font-size: 14px;
+  --product-title-font-size: 16px;
+  --product-title-font-weight: var(--font-weight-light);
+}

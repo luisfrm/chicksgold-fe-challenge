@@ -1,0 +1,196 @@
+/* CSS Reset */
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Eliminar estilos predeterminados de listas */
+ul,
+ol {
+	list-style: none;
+}
+
+/* Eliminar estilos predeterminados de enlaces */
+a {
+	color: var(--article-text-color);
+	text-decoration: none;
+}
+
+a.hyperlink:hover {
+	color: var(--accent-color);
+}
+
+/* Eliminar estilos predeterminados de botones */
+button {
+	background: none;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+}
+
+/* Eliminar estilos predeterminados de formularios */
+input,
+textarea,
+select,
+button {
+	font: inherit;
+	color: inherit;
+}
+
+/* Eliminar márgenes predeterminados de elementos de texto */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+	color: var(--article-text-color);
+}
+
+/* Evitar desbordamiento de imágenes */
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* Establecer un tamaño de fuente base y altura de línea */
+html {
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+/* Asegurar que los elementos de bloque se comporten correctamente */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+/* Eliminar estilos predeterminados de tablas */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Eliminar estilos predeterminados de elementos incrustados */
+iframe,
+embed,
+object {
+	border: 0;
+}
+
+/* Asegurar que los elementos de formulario no hereden estilos de fuente */
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0;
+}
+
+/* Corregir la alineación de elementos en línea */
+button,
+input {
+	overflow: visible;
+}
+
+/* Corregir el estilo de los botones en Firefox */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	-webkit-appearance: button;
+}
+
+/* Eliminar el padding interno en Firefox */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+	border-style: none;
+	padding: 0;
+}
+
+/* Corregir el estilo de los campos de número en Chrome */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+
+/* Corregir el estilo de los campos de búsqueda en Chrome */
+[type="search"] {
+	-webkit-appearance: textfield;
+	outline-offset: -2px;
+}
+
+/* Eliminar el padding interno en Chrome */
+[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/* Corregir el estilo de los elementos ocultos */
+[hidden] {
+	display: none;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: var(--page-background-color);
+	color: var(--article-text-color);
+}
+
+#main {
+	display: flex;
+	min-height: 100vh;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding-top: 64px;
+
+	#content {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		max-width: 1280px;
+		width: 100%;
+		min-height: 80vh;
+
+		@media screen and (max-width: 1280px) {
+			& {
+				max-width: 990px;
+			}
+		}
+
+		@media screen and (max-width: 992px) {
+			& {
+				max-width: 800px;
+			}
+		}
+
+		@media screen and (max-width: 768px) {
+			& {
+				max-width: 100%;
+			}
+		}
+	}
+}
