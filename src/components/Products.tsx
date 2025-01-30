@@ -23,7 +23,7 @@ const Products = () => {
 	const [searchTerm, setSearchTerm] = useState<string>("");
 	const [sortBy, setSortBy] = useState<string>("");
 	const [price, setPrice] = useState<string>("");
-	const [itemType, setItemType] = useState<string>("");
+	const [itemType] = useState<string>("");
 	const [page, setPage] = useState<number>(1);
 	const [game, setGame] = useState<string>("");
 	const [totalPages, setTotalPages] = useState<number>(1);
@@ -70,8 +70,7 @@ const Products = () => {
 		setPage(1);
 	};
 
-	const handleItemType = (itemType: string) => {
-		setItemType(itemType);
+	const handleItemType = () => {
 		setPage(1);
 	};
 
