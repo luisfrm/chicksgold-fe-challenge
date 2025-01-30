@@ -1,4 +1,11 @@
-import { Products } from "./types";
+import {
+	DollarSign,
+	Euro,
+	IndianRupee,
+	JapaneseYen,
+	PoundSterling,
+} from "lucide-react";
+import { HeaderItem, MenuItem, Option, Products } from "./types";
 
 const products: Products = {
 	page: 1,
@@ -149,7 +156,7 @@ export const fetchProducts = async (): Promise<Products> => {
 	});
 };
 
-export const HeaderItems = [
+export const headerItems: HeaderItem[] = [
 	{
 		label: "Currency",
 		url: "#",
@@ -174,4 +181,20 @@ export const HeaderItems = [
 		label: "Sell",
 		url: "#",
 	},
+];
+
+export const menuItems: MenuItem[] = [
+	{ id: "usd", label: "USD", icon: <DollarSign className="h-4 w-4" /> },
+	{ id: "eur", label: "EUR", icon: <Euro className="h-4 w-4" /> },
+	{ id: "gbp", label: "GBP", icon: <PoundSterling className="h-4 w-4" /> },
+	{ id: "yen", label: "YEN", icon: <JapaneseYen className="h-4 w-4" /> },
+	{ id: "rup", label: "Ruppe", icon: <IndianRupee className="h-4 w-4" /> },
+];
+
+export const menuItemsMobile: Option[] = [
+	{ value: "usd", label: "USD" },
+	{ value: "eur", label: "EUR" },
+	{ value: "gbp", label: "GBP" },
+	{ value: "yen", label: "YEN" },
+	{ value: "rup", label: "Ruppe" },
 ];
