@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Products from "./components/Products";
 
@@ -8,10 +9,12 @@ function App() {
 
 			<main id="main">
 				<section id="content">
-					<h1>Condimentum consectetur</h1>
+					<h1 id="title">Condimentum consectetur</h1>
 					<Products />
 				</section>
 			</main>
+
+			<Footer />
 		</>
 	);
 }
