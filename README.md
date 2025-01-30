@@ -1,50 +1,90 @@
-# React + TypeScript + Vite
+# Chicks Gold FE Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a Front-End challenge by Chicks Gold made in TypeScript and React.
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The goal of this challenge is to create a simple web application that allows users to search for a specific product and add it to their cart. The application should have a responsive design and should be accessible to users with disabilities.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Prerequisites
 
-- Configure the top-level `parserOptions` property like this:
+Before you begin, ensure you have the following installed:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- [Node.js](https://nodejs.org/en/download/) (version 22.0.0 or higher)
+- [Bun](https://bun.sh/install) (version 0.6.0 or higher)
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/ChicksGold/ChicksGold-FE-Challenge.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Navigate to the project directory:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+cd ChicksGold-FE-Challenge
 ```
+
+3. Install the project dependencies:
+
+```bash
+bun install
+```
+
+4. Start the development server:
+
+```bash
+bun run dev
+```
+
+5. Open your browser and navigate to `http://localhost:5173` to view the application.
+
+### Docker
+
+If you prefer to use Docker, you can build and run the application using the following commands:
+
+```bash
+docker build -t chicks-gold-fe-challenge .
+docker run -p 5173:80 chicks-gold-fe-challenge
+```
+
+Open your browser and navigate to `http://localhost:5173` to view the application.
+
+### Docker Compose
+
+If you prefer to use Docker Compose, you can start the application using the following command:
+
+```bash
+docker-compose up
+```
+
+Open your browser and navigate to `http://localhost:8080` to view the application.
+
+## Deployment
+
+Site is deployed on [Vercel](https://vercel.com/).
+You're free to use the deployed version at [chicksgold-fe-challenge.vercel.app](https://chicksgold-fe-challenge.vercel.app/).
+
+## Usage
+
+To use the application, follow these steps:
+
+1. Open the application in your browser.
+2. Enter a product name in the search bar.
+3. Click the "Add to Cart" button to add the product to your cart.
+
+## Features
+
+- Responsive design: The application should be accessible to users with disabilities.
+- Search functionality: Users should be able to search for a specific product by entering its name in the search bar.
+- Cart functionality: Users should be able to add products to their cart by clicking the "Add" button.
+- Product details: Users should be able to view detailed information about each product, including its name, price, and image.
+- Cart summary: Users should be able to view a summary of their cart, including the total price and the number of items in the cart.
+
+## Contributing
+
+Contributions and suggestions are welcome!
