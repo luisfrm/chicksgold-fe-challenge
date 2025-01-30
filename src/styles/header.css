@@ -6,41 +6,88 @@
 	height: var(--header-height);
 	border-bottom: 2px solid var(--light-blue-color);
 
-	#logo {
-		padding: 0 32px;
-		cursor: pointer;
-		border-right: 1px solid var(--text-color);
+	#header-content-desktop {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		width: 100%;
 
-		&:hover {
-			filter: drop-shadow(0 0 5px var(--text-color));
+		nav {
+			height: 100%;
+	
+			ul {
+				display: flex;
+				align-items: center;
+				font-size: var(--header-item-font-size);
+				font-weight: var(--header-item-font-weight);
+				height: 100%;
+	
+				li {
+					height: 100%;
+					display: flex;
+					border-bottom: 2px solid transparent;
+					align-items: center;
+					cursor: pointer;
+					padding-inline: 30px;
+	
+					&:hover {
+						border-bottom: 2px solid var(--muted-color);
+					}
+				}
+			}
 		}
 	}
 
-	nav {
-		height: 100%;
+	#header-content-mobile {
+		display: flex;
+		flex-direction: column;
 
-		ul {
-			display: flex;
-			align-items: center;
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-			font-size: var(--header-item-font-size);
-			font-weight: var(--header-item-font-weight);
+		nav {
 			height: 100%;
-
-			li {
+	
+			ul {
+				font-size: var(--header-item-font-size);
+				font-weight: var(--header-item-font-weight);
 				height: 100%;
-				display: flex;
-				border-bottom: 2px solid transparent;
-				align-items: center;
-				cursor: pointer;
-				padding-inline: 30px;
-
-				&:hover {
-					border-bottom: 2px solid var(--muted-color);
+	
+				li {
+					height: 100%;
+					display: flex;
+					border-bottom: 2px solid var(--light-blue-color);
+					align-items: center;
+					cursor: pointer;
+					padding: 15px;
 				}
 			}
+		}
+
+		.header-cta {
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+			padding: 10px;
+		}
+	}
+
+	.navigation-mobile {
+		display: flex;
+		flex-direction: column;
+	}
+
+	@media screen and (max-width: 1600px) {
+		justify-content: space-between;
+		#header-content-desktop {
+			display: none;
+		}
+	}
+
+	#logo {
+		padding: var(--header-logo-padding);
+		cursor: pointer;
+		border-right: var(--header-logo-border);
+
+		&:hover {
+			filter: drop-shadow(0 0 5px var(--text-color));
 		}
 	}
 
@@ -52,8 +99,9 @@
 		flex-grow: 1;
 		display: flex;
 		justify-content: flex-end;
+		align-items: center;
 		gap: 8px;
-		height: 100%;		
+		height: 100%;
 
 		.header-signin {
 			height: var(--header-icon-signin-size);

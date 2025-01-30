@@ -28,3 +28,14 @@ export interface Option {
 	value: string;
 	label: string;
 }
+
+interface HeaderItem {
+	label: string;
+	url: string;
+}
+
+export interface MenuItem {
+	id: string;
+	label: string;
+	icon?: React.ReactNode;
+}

@@ -23,14 +23,16 @@ export const Sidebar = ({ children, trigger, className = "" }: SidebarProps) => 
 	return (
 		<>
 			{trigger && (
-				<div className={className} onClick={() => setIsOpen(true)}>
-					{trigger}
+				<div className={className}>
+					<div className={className} onClick={() => setIsOpen(true)}>
+						{trigger}
+					</div>
+					<div>
+						{isOpen && <div className="overlay" onClick={() => setIsOpen(false)} />}
+						{children}
+					</div>
 				</div>
 			)}
-			<div>
-				{isOpen && <div className="overlay" onClick={() => setIsOpen(false)} />}
-				{children}
-			</div>
 		</>
 	);
 };

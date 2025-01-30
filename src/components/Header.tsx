@@ -1,9 +1,10 @@
 import { ChevronDown, UserRound } from "lucide-react";
-import { HeaderItems } from "../config/config";
+import { headerItems } from "../config/config";
 
 import Logo from "../assets/Logo";
 import CurrencyButton from "./CurrencyButton";
 import CartSidebar from "./CartSidebar";
+import NavigationMobile from "./NavigationMobile";
 
 const Header = () => {
 	return (
@@ -11,24 +12,27 @@ const Header = () => {
 			<div id="logo">
 				<Logo />
 			</div>
-			<nav>
-				<ul>
-					{HeaderItems.map((item, index) => (
-						<li key={index} className="rotate-icon">
-							{item.label.toUpperCase()} <ChevronDown className="header-icon" />
-						</li>
-					))}
-				</ul>
-			</nav>
-			<div className="header-cta">
-				<CurrencyButton />
-				<CartSidebar />
-				<div className="flex align-center">
-					<button className="button-primary">
-						Sign In <UserRound className="header-signin" />
-					</button>
+			<NavigationMobile />
+			<section id="header-content-desktop">
+				<nav>
+					<ul>
+						{headerItems.map((item, index) => (
+							<li key={index} className="rotate-icon">
+								{item.label.toUpperCase()} <ChevronDown className="header-icon" />
+							</li>
+						))}
+					</ul>
+				</nav>
+				<div className="header-cta">
+					<CurrencyButton />
+					<CartSidebar />
+					<div className="flex align-center">
+						<button className="button-primary">
+							Sign In <UserRound className="header-signin" />
+						</button>
+					</div>
 				</div>
-			</div>
+			</section>
 		</header>
 	);
 };
