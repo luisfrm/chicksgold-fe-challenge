@@ -4,7 +4,7 @@
 	background-color: var(--main-background-color);
 	padding: 0px 26px;
 	height: var(--header-height);
-	border-bottom: 1px solid var(--tertiary-color);
+	border-bottom: 2px solid var(--light-blue-color);
 
 	#logo {
 		padding: 0 32px;
