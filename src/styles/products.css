@@ -266,34 +266,26 @@
 				justify-content: space-between;
 				align-items: center;
 				gap: 8px;
+
+				button {
+					flex-grow: 1;
+				}
 			}
 
 			.details-button {
 				color: var(--muted-color);
-				background: none;
+				background: var(--input-bg-color);
 				border: none;
-				font-size: var(--header-item-font-size);
+				font-size: var(--product-card-button-font-size);
 				cursor: pointer;
 				text-transform: uppercase;
-				padding: 0;
-			}
-
-			.add-button {
-				display: flex;
-				align-items: center;
-				gap: 6px;
-				background: var(--button-bg-color);
-				color: var(--text-color);
-				border: none;
+				padding: var(--product-card-button-padding);
 				border-radius: var(--radius-default);
-				padding: 6px 12px;
-				cursor: pointer;
-				font-size: var(--header-item-font-size);
-				text-transform: uppercase;
-			}
+				max-height: var(--product-card-button-max-height);
 
-			.add-button:hover {
-				opacity: 0.8;
+				&:hover {
+					background: var(--input-bg-color-selected);
+				}
 			}
 		}
 	}

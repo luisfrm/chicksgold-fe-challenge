@@ -2,24 +2,7 @@ import { SidebarProvider } from "../context/SidebarContext";
 import { Sidebar, SidebarContent, SidebarDialog, SidebarFooter, SidebarHeader, SidebarTitle } from "./Sidebar";
 import CartButton from "./CartButton";
 import { ShoppingCart } from "lucide-react";
-
-export interface CartItem {
-	id: string;
-	name: string;
-	price: number;
-	originalPrice: number;
-	imageUrl: string;
-	inStock: boolean;
-	onSale: boolean;
-	quantity: number;
-	platformBadge: string;
-	description: string;
-}
-
-export interface Cart {
-	items: CartItem[];
-	total: number;
-}
+import { Cart } from "../config/types";
 
 const sampleCart: Cart = {
 	items: [
@@ -28,7 +11,7 @@ const sampleCart: Cart = {
 			name: "Gold Package",
 			price: 19.99,
 			originalPrice: 24.99,
-			imageUrl: "/placeholder.svg?height=80&width=80",
+			imageUrl: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738256599/OSRS-Red_partyhat_bqyanu.webp",
 			inStock: true,
 			onSale: true,
 			quantity: 1,
@@ -40,7 +23,7 @@ const sampleCart: Cart = {
 			name: "Silver Package",
 			price: 9.99,
 			originalPrice: 14.99,
-			imageUrl: "/placeholder.svg?height=80&width=80",
+			imageUrl: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738256599/OSRS-Red_partyhat_bqyanu.webp",
 			inStock: true,
 			onSale: false,
 			quantity: 2,

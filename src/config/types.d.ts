@@ -1,19 +1,19 @@
 export interface CartItem {
-	id: string; // Identificador único del artículo
-	name: string; // Nombre del artículo
-	price: number; // Precio actual del artículo
-	originalPrice: number; // Precio original del artículo antes del descuento
-	imageUrl: string; // URL de la imagen del artículo
-	inStock: boolean; // Indica si el artículo está en stock
-	onSale: boolean; // Indica si el artículo está en oferta
-	quantity: number; // Cantidad del artículo en el carrito
-	platformBadge: string; // Etiqueta de la plataforma (por ejemplo, "RS3")
-	description: string; // Descripción del artículo
+	id: string;
+	name: string;
+	price: number;
+	originalPrice: number;
+	imageUrl: string;
+	inStock: boolean;
+	onSale: boolean;
+	quantity: number;
+	platformBadge: string;
+	description: string;
 }
 
 export interface Cart {
-	items: CartItem[]; // Artículos en el carrito
-	total: number; // Precio total del carrito
+	items: CartItem[]; // Articles in the cart
+	total: number; // Price of all items in the cart
 }
 
 export interface Products {

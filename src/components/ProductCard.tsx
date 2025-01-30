@@ -1,18 +1,6 @@
 import { useState } from "react";
 import { ChevronUp, ChevronDown, ShoppingCart } from "lucide-react";
-
-export interface CartItem {
-	id: string;
-	name: string;
-	price: number;
-	originalPrice: number;
-	imageUrl: string;
-	inStock: boolean;
-	onSale: boolean;
-	quantity: number;
-	platformBadge: string;
-	description: string;
-}
+import { CartItem } from "../config/types";
 
 interface ProductCardProps {
 	item: CartItem;
@@ -47,7 +35,7 @@ export default function ProductCard({ item, onAddToCart, onViewDetails, maxQuant
 						<span>{item.inStock ? "In stock" : "Out of stock"}</span>
 					</div>
 				</div>
-				{item.inStock && (
+				{item.inStock && item.onSale && item.quantity > 0 && (
 					<div className="quantity-selector">
 						<div id="quantity-input">{quantity}</div>
 						<div className="chevron-section">
@@ -87,10 +75,12 @@ export default function ProductCard({ item, onAddToCart, onViewDetails, maxQuant
 				<button className="details-button" onClick={() => onViewDetails?.(item.id)}>
 					Details
 				</button>
-				{item.inStock && (
+				{item.inStock && item.onSale && (
 					<button className="add-button" onClick={() => onAddToCart?.({ ...item, quantity })}>
 						Add
-						<ShoppingCart size={16} />
+						<span className="add-button-icon">
+							<ShoppingCart size={16} />
+						</span>
 					</button>
 				)}
 			</div>

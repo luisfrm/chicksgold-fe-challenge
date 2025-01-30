@@ -119,3 +119,22 @@ button {
 	font-size: 0.75rem;
 	margin-top: 0.25rem;
 }
+
+.add-button {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	background: var(--button-bg-color);
+	color: var(--text-color);
+	border: none;
+	border-radius: var(--radius-default);
+	padding: var(--product-card-button-padding);
+	cursor: pointer;
+	font-size: var(--product-card-button-font-size);
+	max-height: var(--product-card-button-max-height);
+	text-transform: uppercase;
+}
+
+.add-button:hover {
+	opacity: 0.8;
+}

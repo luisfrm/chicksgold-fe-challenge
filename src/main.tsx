@@ -9,7 +9,7 @@ import "./styles/header.css";
 import "./styles/currencyButton.css";
 import "./styles/sidebar.css";
 import "./styles/products.css";
-import "./styles/pagination.css";
+import "./styles/productDialog.css";
 import "./styles/pagination.css";
 import "./styles/customSelect.css";
 import "./styles/searchInput.css";

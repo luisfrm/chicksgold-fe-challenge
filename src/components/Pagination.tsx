@@ -1,26 +1,22 @@
 "use client"
 
-import { useState } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import "../styles/pagination.css"
 
 interface PaginationProps {
   totalPages: number
-  initialPage?: number
+  currentPage?: number
   onPageChange?: (page: number) => void
   maxVisiblePages?: number
 }
 
 export default function Pagination({
   totalPages,
-  initialPage = 1,
+  currentPage = 1,
   onPageChange,
   maxVisiblePages = 5
 }: PaginationProps) {
-  const [currentPage, setCurrentPage] = useState(initialPage)
 
   const handlePageChange = (page: number) => {
-    setCurrentPage(page)
     onPageChange?.(page)
   }
 
