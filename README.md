@@ -84,6 +84,10 @@ To use the application, follow these steps:
 - Cart functionality: Users should be able to add products to their cart by clicking the "Add" button.
 - Product details: Users should be able to view detailed information about each product, including its name, price, and image.
 - Cart summary: Users should be able to view a summary of their cart, including the total price and the number of items in the cart.
+- I used CSS variables to make the application more customizable. I added it into the `src/styles/variables.css` file.
+- I also added the css files to the `src/styles/` folder because I wanted to keep the styles separated from the components since this is a single page application and I prefered to keep the styles in a separate folder.
+- I used the `useStore` hook to manage the state of the cart. I created a `Cart` interface to define the cart state and a `CartItem` interface to define the items in the cart.
+- I used css media queries to adjust the layout of the application based on the screen size.
 
 ## Contributing
 

@@ -7,20 +7,20 @@ const paymentMethods = [
 		image: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738277875/Mastercard_2019_logo_zmarzi.webp",
 	},
 	{ name: "American Express", image: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738278694/amex_t9rhby.webp" },
-	{ name: "Skrill", image: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738277305/Skrill_logo_pmaebq.webp" }, // 100x32
+	{ name: "Skrill", image: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738277305/Skrill_logo_pmaebq.webp" },
 	{
 		name: "Bitcoin1",
 		image: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738277304/bitcoin-6141694_1280_ecrcsf.webp",
-	}, // 32x32
+	},
 	{
 		name: "Ethereum",
 		image: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738278331/Ethereum_logo_2014_hlljwh.webp",
-	}, // 32x32
-	{ name: "Bitcoin2", image: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738277304/Bitcoin-Logo_bh5ib6.webp" }, // 32x32
+	},
+	{ name: "Bitcoin2", image: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738278329/Bitcoin_cztq45.webp" },
 	{
 		name: "Litecoin",
 		image: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738278330/1200px-LTC-400_r97bmf.webp",
-	}, // 32x32
+	},
 ];
 
 const socialLinks = [
