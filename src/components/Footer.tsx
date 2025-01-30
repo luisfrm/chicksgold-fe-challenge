@@ -1,20 +1,49 @@
-import { Facebook, Instagram, Twitter, DiscIcon as Discord, Star } from "lucide-react";
+import { Star } from "lucide-react";
 
 const paymentMethods = [
-	{ name: "Visa", image: "https://picsum.photos/100/32" },
-	{ name: "Mastercard", image: "https://picsum.photos/100/32" },
-	{ name: "American Express", image: "https://picsum.photos/100/32" },
-	{ name: "Skrill", image: "https://picsum.photos/100/32" },
-	{ name: "Bitcoin", image: "https://picsum.photos/32" },
-	{ name: "Ethereum", image: "https://picsum.photos/32" },
-	{ name: "Litecoin", image: "https://picsum.photos/32" },
+	{ name: "Visa", image: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738277307/Visa-Logo-2006_jc6pj3.webp" },
+	{
+		name: "Mastercard",
+		image: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738277875/Mastercard_2019_logo_zmarzi.webp",
+	},
+	{ name: "American Express", image: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738278694/amex_t9rhby.webp" },
+	{ name: "Skrill", image: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738277305/Skrill_logo_pmaebq.webp" }, // 100x32
+	{
+		name: "Bitcoin1",
+		image: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738277304/bitcoin-6141694_1280_ecrcsf.webp",
+	}, // 32x32
+	{
+		name: "Ethereum",
+		image: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738278331/Ethereum_logo_2014_hlljwh.webp",
+	}, // 32x32
+	{ name: "Bitcoin2", image: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738277304/Bitcoin-Logo_bh5ib6.webp" }, // 32x32
+	{
+		name: "Litecoin",
+		image: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738278330/1200px-LTC-400_r97bmf.webp",
+	}, // 32x32
 ];
 
 const socialLinks = [
-	{ icon: Facebook, href: "#", label: "Facebook" },
-	{ icon: Instagram, href: "#", label: "Instagram" },
-	{ icon: Twitter, href: "#", label: "Twitter" },
-	{ icon: Discord, href: "#", label: "Discord" },
+	{
+		url: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738278691/2021_Facebook_icon_glsupa.webp",
+		href: "#",
+		label: "Facebook",
+	},
+	{
+		url: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738277304/Instagram_logo_2022.svg_xnpb7f.webp",
+		href: "#",
+		label: "Instagram",
+	},
+	{
+		url: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738278332/3938028_wg4pbv.webp",
+		href: "#",
+		label: "Twitter",
+	},
+	{
+		url: "https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738277306/tech-guide_header-image-discord_vxbqfk.webp",
+		href: "#",
+		label: "Discord",
+	},
 ];
 
 const footerSections = {
@@ -66,9 +95,9 @@ export default function Footer() {
 				{/* Social Links */}
 				<div id="social-links-wrapper">
 					<div className="social-links">
-						{socialLinks.map(({ icon: Icon, href, label }) => (
+						{socialLinks.map(({ url, href, label }) => (
 							<a key={label} href={href} className="social-link" aria-label={label}>
-								<Icon size={20} />
+								<img src={url} alt={label} className="social-logo" />
 							</a>
 						))}
 					</div>
@@ -81,7 +110,11 @@ export default function Footer() {
 					<div className="footer-content">
 						{/* Company Info */}
 						<div className="footer-section">
-							<img src="https://picsum.photos/160/40" alt="Chicks Gold" className="footer-logo" />
+							<img
+								src="https://res.cloudinary.com/dw4ecbwo9/image/upload/v1738278693/chicks-logo_tmyqdq.webp"
+								alt="Chicks Gold"
+								className="footer-logo"
+							/>
 							<a href="mailto:support@chicksgold.com" className="footer-email">
 								support@chicksgold.com
 							</a>
