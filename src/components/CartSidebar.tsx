@@ -1,5 +1,3 @@
-"use client";
-
 import { SidebarProvider } from "../context/SidebarContext";
 import { Sidebar, SidebarContent, SidebarDialog, SidebarFooter, SidebarHeader, SidebarTitle } from "./Sidebar";
 import CartButton from "./CartButton";
@@ -78,7 +76,12 @@ export default function CartSidebar() {
 												</div>
 												<div className="item-price">
 													<div className="current-price">${item.price.toFixed(2)}</div>
-													{item.onSale && <div className="original-price">${item.originalPrice.toFixed(2)}</div>}
+													{item.onSale && (
+														<div className="original-price-container">
+															<p className="original-price">${item.originalPrice.toFixed(2)}</p>
+															<div className="line-through"></div>
+														</div>
+													)}
 												</div>
 											</div>
 											<p className="item-description">{item.description}</p>

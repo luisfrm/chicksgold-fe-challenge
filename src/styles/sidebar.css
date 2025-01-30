@@ -100,31 +100,8 @@
   margin: 0;
 }
 
-.platform-badge {
-  display: inline-flex;
-  align-items: center;
-  background-color: rgba(59, 130, 246, 0.1);
-  color: #3b82f6;
-  padding: 0.25rem 0.5rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  margin-top: 0.25rem;
-}
-
 .item-price {
   text-align: right;
-}
-
-.current-price {
-  color: white;
-  font-weight: 500;
-  font-size: 0.875rem;
-}
-
-.original-price {
-  color: #9ca3af;
-  text-decoration: line-through;
-  font-size: 0.75rem;
 }
 
 .item-description {

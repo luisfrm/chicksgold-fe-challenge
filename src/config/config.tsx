@@ -1,7 +1,9 @@
-export const products = {
+import { Products } from "./types";
+
+const products: Products = {
 	page: 1,
 	totalPages: 3,
-	itemsPerPage: 5,
+	itemsPerPage: 20,
 	totalItems: 15,
 	cartItems: [
 		{
@@ -9,7 +11,7 @@ export const products = {
 			name: "Blue Partyhat",
 			price: 450.0,
 			originalPrice: 622.5,
-			imageUrl: "https://example.com/blue-partyhat.jpg",
+			imageUrl: "https://picsum.photos/200",
 			inStock: true,
 			onSale: true,
 			quantity: 1,
@@ -21,7 +23,7 @@ export const products = {
 			name: "Red Partyhat",
 			price: 400.0,
 			originalPrice: 550.0,
-			imageUrl: "https://example.com/red-partyhat.jpg",
+			imageUrl: "https://picsum.photos/200",
 			inStock: true,
 			onSale: true,
 			quantity: 2,
@@ -33,7 +35,7 @@ export const products = {
 			name: "Green Partyhat",
 			price: 425.0,
 			originalPrice: 600.0,
-			imageUrl: "https://example.com/green-partyhat.jpg",
+			imageUrl: "https://picsum.photos/200",
 			inStock: false,
 			onSale: false,
 			quantity: 0,
@@ -45,7 +47,7 @@ export const products = {
 			name: "Yellow Partyhat",
 			price: 380.0,
 			originalPrice: 525.0,
-			imageUrl: "https://example.com/yellow-partyhat.jpg",
+			imageUrl: "https://picsum.photos/200",
 			inStock: true,
 			onSale: true,
 			quantity: 3,
@@ -57,7 +59,79 @@ export const products = {
 			name: "Purple Partyhat",
 			price: 500.0,
 			originalPrice: 650.0,
-			imageUrl: "https://example.com/purple-partyhat.jpg",
+			imageUrl: "https://picsum.photos/200",
+			inStock: true,
+			onSale: false,
+			quantity: 1,
+			platformBadge: "RS3",
+			description: "Lorem ipsum dolor sit amet consectetur sadipscing elitr.",
+		},
+		{
+			id: "6",
+			name: "Purple Partyhat",
+			price: 500.0,
+			originalPrice: 650.0,
+			imageUrl: "https://picsum.photos/200",
+			inStock: true,
+			onSale: false,
+			quantity: 1,
+			platformBadge: "RS3",
+			description: "Lorem ipsum dolor sit amet consectetur sadipscing elitr.",
+		},
+		{
+			id: "7",
+			name: "Purple Partyhat",
+			price: 500.0,
+			originalPrice: 650.0,
+			imageUrl: "https://picsum.photos/200",
+			inStock: true,
+			onSale: false,
+			quantity: 1,
+			platformBadge: "RS3",
+			description: "Lorem ipsum dolor sit amet consectetur sadipscing elitr.",
+		},
+		{
+			id: "8",
+			name: "Purple Partyhat",
+			price: 500.0,
+			originalPrice: 650.0,
+			imageUrl: "https://picsum.photos/200",
+			inStock: true,
+			onSale: false,
+			quantity: 1,
+			platformBadge: "RS3",
+			description: "Lorem ipsum dolor sit amet consectetur sadipscing elitr.",
+		},
+		{
+			id: "9",
+			name: "Purple Partyhat",
+			price: 500.0,
+			originalPrice: 650.0,
+			imageUrl: "https://picsum.photos/200",
+			inStock: true,
+			onSale: false,
+			quantity: 1,
+			platformBadge: "RS3",
+			description: "Lorem ipsum dolor sit amet consectetur sadipscing elitr.",
+		},
+		{
+			id: "10",
+			name: "Purple Partyhat",
+			price: 500.0,
+			originalPrice: 650.0,
+			imageUrl: "https://picsum.photos/200",
+			inStock: true,
+			onSale: false,
+			quantity: 1,
+			platformBadge: "RS3",
+			description: "Lorem ipsum dolor sit amet consectetur sadipscing elitr.",
+		},
+		{
+			id: "11",
+			name: "Purple Partyhat",
+			price: 500.0,
+			originalPrice: 650.0,
+			imageUrl: "https://picsum.photos/200",
 			inStock: true,
 			onSale: false,
 			quantity: 1,
@@ -65,6 +139,14 @@ export const products = {
 			description: "Lorem ipsum dolor sit amet consectetur sadipscing elitr.",
 		},
 	],
+};
+
+export const fetchProducts = async (): Promise<Products> => {
+	return new Promise(resolve => {
+		setTimeout(() => {
+			resolve(products);
+		}, 200);
+	});
 };
 
 export const HeaderItems = [
@@ -92,4 +174,4 @@ export const HeaderItems = [
 		label: "Sell",
 		url: "#",
 	},
-]
+];

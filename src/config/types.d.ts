@@ -15,3 +15,16 @@ export interface Cart {
 	items: CartItem[]; // Artículos en el carrito
 	total: number; // Precio total del carrito
 }
+
+export interface Products {
+	page: number;
+	totalPages: number;
+	itemsPerPage: number;
+	totalItems: number;
+	cartItems: CartItem[];
+}
+
+export interface Option {
+	value: string;
+	label: string;
+}
