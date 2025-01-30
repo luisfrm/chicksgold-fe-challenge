@@ -6,7 +6,7 @@
 	--accent-color: #39e29d; /* Green */
 	--accent-color-hover: #2bca8b; /* Dark Green */
 	--purple-color: #5762d5; /* Purple */
-  --light-blue-color: #404a65; /* Light Blue */
+	--light-blue-color: #404a65; /* Light Blue */
 	--gray-color: #858585; /* Gray */
 	--gray-light-color: #b6b6b6; /* Gray */
 	--input-bg-color: rgba(76, 96, 133, 0.2);
@@ -31,6 +31,8 @@
 	--font-weight-regular: 400;
 	--font-weight-medium: 500;
 	--font-weight-bold: 700;
+
+	--title-letter-spacing: 1.5px;
 
 	/* Secondary */
 	--main-background-color: var(--primary-color);
@@ -62,6 +64,18 @@
 	--product-item-font-size: 16px;
 	--product-item-font-weight: var(--font-weight-light);
 	--product-item-price-font-size: 14px;
-  --product-title-font-size: 16px;
-  --product-title-font-weight: var(--font-weight-light);
+	--product-title-font-size: 16px;
+	--product-title-font-weight: var(--font-weight-light);
+
+	--custom-select-letter-spacing: 1px;
+
+	--max-w-footer: 1200px;
+
+	--header-logo-padding: 0px 32px;
+	--header-logo-border: 1px solid var(--text-color);
+
+	@media screen and (max-width: 1600px) {
+		--header-logo-padding: 0;
+		--header-logo-border: 1px solid transparent;
+	}
 }

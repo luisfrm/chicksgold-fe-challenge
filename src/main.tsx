@@ -12,6 +12,8 @@ import "./styles/products.css";
 import "./styles/pagination.css";
 import "./styles/pagination.css";
 import "./styles/customSelect.css";
+import "./styles/searchInput.css";
+import "./styles/footer.css";
 
 import App from "./App.tsx";
 

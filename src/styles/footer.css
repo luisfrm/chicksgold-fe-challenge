@@ -1,0 +1,154 @@
+.footer {
+	background: var(--main-background-color);
+}
+
+.footer-container {
+	padding: 5px 0 24px;
+}
+
+#payment-methods-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #262833;
+	padding: 48px 0;
+	margin-bottom: 32px;
+
+	.payment-methods {
+		max-width: var(--max-w-footer);
+		padding: 0 12px;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 24px;
+		flex-wrap: wrap;
+	}
+}
+
+.payment-logo {
+	height: 32px;
+	width: auto;
+	object-fit: contain;
+}
+
+.more-text {
+	color: var(--gray-color);
+	font-size: var(--header-item-font-size);
+}
+
+#social-links-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 48px 0;
+	margin-bottom: 32px;
+
+	.social-links {
+		display: flex;
+		align-items: center;
+		max-width: var(--max-w-footer);
+    width: 100%;
+		justify-content: flex-start;
+		gap: 16px;
+	}
+}
+
+.social-link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	background: var(--input-bg-color);
+	border-radius: 50%;
+	color: var(--text-color);
+	transition: background-color 0.2s ease;
+}
+
+.social-link:hover {
+	background: var(--input-bg-color-selected);
+}
+
+.footer-divider {
+	height: 1px;
+	background: var(--input-bg-color);
+	margin: 32px 0;
+}
+
+#footer-content-wrapper {
+	display: flex;
+	justify-content: center;
+
+	.footer-content {
+		width: var(--max-w-footer);
+		display: flex;
+		justify-content: space-between;
+		gap: 48px;
+		margin-bottom: 48px;
+		padding: 0 12px;
+
+		@media (max-width: 1200px) {
+			flex-wrap: wrap;
+			justify-content: center;
+			width: 100%;
+		}
+	}
+}
+
+.footer-logo {
+	height: 40px;
+	width: auto;
+	margin-bottom: 16px;
+}
+
+.footer-email {
+	color: var(--gray-color);
+	font-size: var(--header-item-font-size);
+	text-decoration: none;
+}
+
+.footer-section h3 {
+	color: var(--text-color);
+	font-size: var(--header-item-font-size);
+	font-weight: var(--header-item-font-weight);
+	margin-bottom: 16px;
+}
+
+.footer-links {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.footer-link {
+	color: var(--gray-color);
+	text-decoration: none;
+	font-size: var(--header-item-font-size);
+	transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+	color: var(--text-color);
+}
+
+.trustpilot {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--accent-color);
+}
+
+.copyright {
+	text-align: center;
+	color: var(--gray-color);
+	font-size: var(--header-item-font-size);
+	margin-top: 48px;
+}
+
+@media (max-width: 768px) {
+	.footer-content {
+		grid-template-columns: 1fr;
+		gap: 32px;
+	}
+}

@@ -32,15 +32,16 @@
 }
 
 .pagination-button.active {
-  background: var(--accent-color);
-  color: var(--primary-color);
-  font-weight: 600;
+  background: var(--button-bg-color);
+  color: var(--text-color);
+  font-weight: var(--font-weight-regular);
 }
 
 .pagination-arrow {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 2px solid var(--button-bg-color);
 }
 
 .pagination-dots {
