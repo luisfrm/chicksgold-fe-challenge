@@ -33,7 +33,7 @@
 }
 
 .more-text {
-	color: var(--gray-color);
+	color: var(--gray-light-color);
 	font-size: var(--header-item-font-size);
 }
 
