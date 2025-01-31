@@ -1,11 +1,11 @@
 import { SidebarProvider } from "../context/SidebarContext";
 import { Sidebar, SidebarContent, SidebarDialog, SidebarFooter, SidebarHeader, SidebarTitle } from "./Sidebar";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Trash2 } from "lucide-react";
 import useStore from "../stores/useStore";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function CartSidebar({ children }: any) {
-	const cart = useStore(state => state.cart);
+	const { cart, clearCart, removeFromCart } = useStore(state => state); 
 
 	return (
 		<SidebarProvider>
@@ -36,10 +36,13 @@ export default function CartSidebar({ children }: any) {
 											</div>
 											<p className="item-description">{item.description}</p>
 											<div className="item-footer">
-												<span className="quantity">Qty: {item.quantity}</span>
+												<span className="quantity">Quantity: {item.quantity}</span>
 												<span className={item.inStock ? "in-stock" : "out-of-stock"}>
 													{item.inStock ? "In Stock" : "Out of Stock"}
 												</span>
+												<button className="remove-button" onClick={() => removeFromCart(item.id)}>
+													<Trash2 />
+												</button>
 											</div>
 										</div>
 									</div>
@@ -53,6 +56,7 @@ export default function CartSidebar({ children }: any) {
 							<span>${cart.total.toFixed(2)}</span>
 						</div>
 						<button className="checkout-button">Checkout</button>
+						<button className="checkout-button clear-cart" onClick={clearCart}>Clear Cart</button>
 					</SidebarFooter>
 				</SidebarDialog>
 			</Sidebar>
